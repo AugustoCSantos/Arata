@@ -7,6 +7,7 @@ const JUMP_FORCE = -400.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_jump := false
+
 @onready var animation := $Anim as AnimatedSprite2D
 
 func _physics_process(delta):
@@ -40,3 +41,4 @@ func _physics_process(delta):
 func _on_hurtbox_body_entered(body):
 	if body.is_in_group("enemies"):
 		queue_free()
+
