@@ -36,3 +36,7 @@ func _physics_process(delta):
 		animation.play("Idle")
 
 	move_and_slide()
+
+func _on_hurtbox_body_entered(body):
+	if body.is_in_group("enemies"):
+		queue_free()

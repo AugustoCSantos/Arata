@@ -1,13 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://ds72swhgs02ol"]
+[gd_scene load_steps=15 format=3 uid="uid://ds72swhgs02ol"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_00uvt"]
 [ext_resource type="Texture2D" uid="uid://drnrqvqitko7" path="res://Assets/Monsters_Creatures_Fantasy/Mushroom/Take Hit.png" id="3_rc2xj"]
 [ext_resource type="Texture2D" uid="uid://byqyncfu6h8kv" path="res://Assets/Monsters_Creatures_Fantasy/Mushroom/Idle.png" id="4_8vty8"]
 [ext_resource type="Texture2D" uid="uid://d1smjebgdpvjd" path="res://Assets/Monsters_Creatures_Fantasy/Mushroom/Attack.png" id="5_6bon0"]
 [ext_resource type="Texture2D" uid="uid://b0r2pfvgdxcf" path="res://Assets/Monsters_Creatures_Fantasy/Mushroom/Run.png" id="6_gijo1"]
+[ext_resource type="PackedScene" uid="uid://cocka5yx8tq5g" path="res://hitbox.tscn" id="6_oo0ca"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2xtbj"]
-height = 36.0
+radius = 13.0
+height = 32.0
 
 [sub_resource type="Animation" id="Animation_x40px"]
 length = 0.001
@@ -221,13 +223,16 @@ _data = {
 "walk": SubResource("Animation_xs4t8")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbjwl"]
+size = Vector2(11, 2)
+
 [node name="enemy" type="CharacterBody2D"]
 position = Vector2(276, 208)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_00uvt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemies"]]
 position = Vector2(-12, -20)
 shape = SubResource("CapsuleShape2D_2xtbj")
 
@@ -245,4 +250,13 @@ autoplay = "walk"
 [node name="walldetector" type="RayCast2D" parent="."]
 position = Vector2(-14, -16)
 target_position = Vector2(-17, 0)
-collision_mask = 6
+collision_mask = 2
+
+[node name="hitbox" parent="." instance=ExtResource("6_oo0ca")]
+position = Vector2(-14, -16)
+
+[node name="Collision" type="CollisionShape2D" parent="hitbox" groups=["enemies"]]
+position = Vector2(3.5, -22)
+shape = SubResource("RectangleShape2D_jbjwl")
+
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

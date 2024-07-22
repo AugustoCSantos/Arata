@@ -1369,8 +1369,19 @@ scale = Vector2(3.2, 2.8)
 texture = ExtResource("9_hkpvn")
 centered = false
 
-[node name="enemy" parent="." instance=ExtResource("11_dv125")]
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="enemy" parent="enemies" instance=ExtResource("11_dv125")]
 position = Vector2(801, 500)
 
-[node name="enemy2" parent="." instance=ExtResource("11_dv125")]
+[node name="enemy2" parent="enemies" instance=ExtResource("11_dv125")]
 position = Vector2(451, 495)
+
+[node name="enemy3" parent="enemies" instance=ExtResource("11_dv125")]
+position = Vector2(629, 131)
+
+[node name="enemy4" parent="enemies" instance=ExtResource("11_dv125")]
+position = Vector2(900, 400)
+
+[node name="enemy5" parent="enemies" instance=ExtResource("11_dv125")]
+position = Vector2(495, 349)
