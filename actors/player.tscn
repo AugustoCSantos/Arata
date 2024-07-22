@@ -225,4 +225,4 @@ scale = Vector2(1.725, 1.8375)
 sprite_frames = SubResource("SpriteFrames_gi2gg")
 animation = &"Jump"
 autoplay = "Idle"
-frame_progress = 0.330233
+frame_progress = 0.535232
