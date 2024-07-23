@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdnqx37gxleou"]
+
+[ext_resource type="PackedScene" uid="uid://556xv33cdnig" path="res://levels/mapa_01.tscn" id="1_7672j"]
+
+[node name="Main" type="Node"]
+
+[node name="Mapa-01" parent="." instance=ExtResource("1_7672j")]
