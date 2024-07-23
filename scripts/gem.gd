@@ -1,5 +1,6 @@
 extends Area2D
 
+var gems := 1  
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -10,4 +11,6 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	await $Collision.call_deferred("queue_free")
+	Global.gems += gems
 	queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://556xv33cdnig"]
+[gd_scene load_steps=19 format=3 uid="uid://556xv33cdnig"]
 
 [ext_resource type="Texture2D" uid="uid://sf7yk67ik33d" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_2a065"]
 [ext_resource type="Texture2D" uid="uid://cbpcvgsi8o5ve" path="res://Assets/oak_woods_v1.0/decorations/rock_1.png" id="2_ff4w0"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://d4akh3ptoe4ty" path="res://Assets/oak_woods_v1.0/background/background_layer_3.png" id="9_hkpvn"]
 [ext_resource type="PackedScene" uid="uid://ge6rg4xq2lik" path="res://items/gem.tscn" id="10_kx3rp"]
 [ext_resource type="PackedScene" uid="uid://ds72swhgs02ol" path="res://actors/enemy.tscn" id="11_dv125"]
+[ext_resource type="Texture2D" uid="uid://r0c3xdete0og" path="res://Assets/Crystal_Animation/Purple/purple_crystal_0000.png" id="12_04wl4"]
+[ext_resource type="Script" path="res://scripts/hud_manager.gd" id="12_ldyt1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bsn8s"]
 texture = ExtResource("1_2a065")
@@ -1366,7 +1368,7 @@ shape = SubResource("RectangleShape2D_ripl5")
 position = Vector2(1049, -19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lim/limite2"]
-position = Vector2(-13, 302.5)
+position = Vector2(-17, 301)
 shape = SubResource("RectangleShape2D_ripl5")
 
 [node name="enemies" type="Node2D" parent="."]
@@ -1385,3 +1387,52 @@ position = Vector2(900, 400)
 
 [node name="enemy5" parent="enemies" instance=ExtResource("11_dv125")]
 position = Vector2(480, 348)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_ldyt1")
+
+[node name="container" type="MarginContainer" parent="HUD/control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="gems_container" type="HBoxContainer" parent="HUD/control/container"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="gems_icon" type="TextureRect" parent="HUD/control/container/gems_container"]
+layout_mode = 2
+texture = ExtResource("12_04wl4")
+
+[node name="gems_counter" type="Label" parent="HUD/control/container/gems_container"]
+layout_mode = 2
+text = "0000"
+
+[node name="score_container" type="HBoxContainer" parent="HUD/control/container"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="score_label" type="Label" parent="HUD/control/container/score_container"]
+layout_mode = 2
+text = "SCORE 
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="score_counter" type="Label" parent="HUD/control/container/score_container"]
+layout_mode = 2
+text = "0000"
+vertical_alignment = 1
