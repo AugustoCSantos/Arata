@@ -83,7 +83,6 @@ position = Vector2(-155, 433)
 position = Vector2(859, 487)
 
 [node name="HUD" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="control" type="Control" parent="HUD"]
 layout_mode = 3
