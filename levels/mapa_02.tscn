@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dunw7argu08o7"]
+[gd_scene load_steps=10 format=3 uid="uid://dunw7argu08o7"]
 
 [ext_resource type="Texture2D" uid="uid://4ffq3x1luhbk" path="res://Assets/DarkForest1.2/bgrd_tree5.png" id="1_kflfw"]
 [ext_resource type="Texture2D" uid="uid://cs46qgqci404k" path="res://Assets/DarkForest1.2/bgrd_tree4.png" id="2_8yv1y"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bbqlhk4hlxd1k" path="res://Assets/DarkForest1.2/bgrd_tree2.png" id="4_7sw78"]
 [ext_resource type="Texture2D" uid="uid://bcdochbj8eijb" path="res://Assets/DarkForest1.2/bgrd_tree1.png" id="5_6rtpl"]
 [ext_resource type="Texture2D" uid="uid://sf7yk67ik33d" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="6_758q1"]
+[ext_resource type="PackedScene" uid="uid://dvpcd44y8habx" path="res://items/goal.tscn" id="7_kba7v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rl10u"]
 texture = ExtResource("6_758q1")
@@ -472,3 +473,7 @@ texture = ExtResource("5_6rtpl")
 position = Vector2(-62, 114)
 tile_set = SubResource("TileSet_bfq64")
 format = 2
+
+[node name="goal" parent="." instance=ExtResource("7_kba7v")]
+position = Vector2(110, 126)
+nextScene = "res://levels/mapa_03.tscn"

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://byqyncfu6h8kv" path="res://Assets/Monsters_Creatures_Fantasy/Mushroom/Idle.png" id="4_8vty8"]
 [ext_resource type="Texture2D" uid="uid://d1smjebgdpvjd" path="res://Assets/Monsters_Creatures_Fantasy/Mushroom/Attack.png" id="5_6bon0"]
 [ext_resource type="Texture2D" uid="uid://b0r2pfvgdxcf" path="res://Assets/Monsters_Creatures_Fantasy/Mushroom/Run.png" id="6_gijo1"]
-[ext_resource type="PackedScene" uid="uid://cocka5yx8tq5g" path="res://hitbox.tscn" id="6_oo0ca"]
+[ext_resource type="PackedScene" uid="uid://cocka5yx8tq5g" path="res://items/hitbox.tscn" id="6_oo0ca"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2xtbj"]
 radius = 13.0
