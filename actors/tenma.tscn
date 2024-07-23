@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://cy47dsqys3cy"]
+
+[ext_resource type="Texture2D" uid="uid://be15hf1ng1gp3" path="res://Assets/Medieval King Pack 2/Sprites/Run.png" id="1_rm8dh"]
+[ext_resource type="Script" path="res://scripts/tenma.gd" id="1_umbrw"]
+[ext_resource type="PackedScene" uid="uid://cocka5yx8tq5g" path="res://items/hitbox.tscn" id="2_ql6ai"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_urodk"]
+height = 58.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7m5u"]
+atlas = ExtResource("1_rm8dh")
+region = Rect2(0, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcvnv"]
+atlas = ExtResource("1_rm8dh")
+region = Rect2(160, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa6u5"]
+atlas = ExtResource("1_rm8dh")
+region = Rect2(320, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvmjf"]
+atlas = ExtResource("1_rm8dh")
+region = Rect2(480, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvoah"]
+atlas = ExtResource("1_rm8dh")
+region = Rect2(640, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bib47"]
+atlas = ExtResource("1_rm8dh")
+region = Rect2(800, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2dog"]
+atlas = ExtResource("1_rm8dh")
+region = Rect2(960, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1ntq"]
+atlas = ExtResource("1_rm8dh")
+region = Rect2(1120, 0, 160, 111)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i1bus"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7m5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcvnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa6u5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvmjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvoah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bib47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2dog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1ntq")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xl23d"]
+size = Vector2(7, 8.25)
+
+[node name="Tenma" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_umbrw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(29, -18)
+shape = SubResource("CapsuleShape2D_urodk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(23, -50)
+scale = Vector2(1.325, 1.34685)
+sprite_frames = SubResource("SpriteFrames_i1bus")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.760877
+
+[node name="wall_detector" type="RayCast2D" parent="."]
+position = Vector2(28, -12)
+target_position = Vector2(-46, -1)
+collision_mask = 2
+
+[node name="hitbox" parent="." instance=ExtResource("2_ql6ai")]
+position = Vector2(-63, -38)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(102.5, -7.875)
+shape = SubResource("RectangleShape2D_xl23d")
