@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://dunw7argu08o7"]
+[gd_scene load_steps=20 format=3 uid="uid://dunw7argu08o7"]
 
+[ext_resource type="Texture2D" uid="uid://cblamkussld63" path="res://Assets/DarkForest1.2/main_background.png" id="1_0lhg1"]
 [ext_resource type="Texture2D" uid="uid://4ffq3x1luhbk" path="res://Assets/DarkForest1.2/bgrd_tree5.png" id="1_kflfw"]
 [ext_resource type="Texture2D" uid="uid://cs46qgqci404k" path="res://Assets/DarkForest1.2/bgrd_tree4.png" id="2_8yv1y"]
 [ext_resource type="Texture2D" uid="uid://n4m20dc6arna" path="res://Assets/DarkForest1.2/bgrd_tree3.png" id="3_upe5d"]
@@ -14,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://r0c3xdete0og" path="res://Assets/Crystal_Animation/Purple/purple_crystal_0000.png" id="11_lh8v2"]
 [ext_resource type="PackedScene" uid="uid://d01nf5gcov7p3" path="res://actors/esqueleto.tscn" id="13_svdef"]
 [ext_resource type="PackedScene" uid="uid://dcrhcdf51e5fu" path="res://actors/goblin.tscn" id="14_6o5lt"]
+[ext_resource type="PackedScene" uid="uid://bhbof7evj400" path="res://items/plataforma_move.tscn" id="16_l5vaq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rl10u"]
 texture = ExtResource("6_758q1")
@@ -1259,6 +1261,15 @@ position = Vector2(404, 141)
 
 [node name="bg" type="ParallaxBackground" parent="."]
 
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="bg"]
+position = Vector2(404, 141)
+motion_scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/ParallaxLayer6"]
+position = Vector2(114, 133.5)
+scale = Vector2(1.01562, 0.949653)
+texture = ExtResource("1_0lhg1")
+
 [node name="ParallaxLayer" type="ParallaxLayer" parent="bg"]
 position = Vector2(404, 141)
 motion_scale = Vector2(1.5, 1.5)
@@ -1303,6 +1314,11 @@ motion_scale = Vector2(1.5, 1.5)
 position = Vector2(106.5, 162)
 scale = Vector2(1.26103, 2.125)
 texture = ExtResource("5_6rtpl")
+
+[node name="plataforma_move" parent="." instance=ExtResource("16_l5vaq")]
+position = Vector2(338, 242)
+distance = 196
+move_horizontal = false
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-62, 114)
@@ -1381,6 +1397,15 @@ position = Vector2(-123, 140)
 [node name="goblin3" parent="enemies" instance=ExtResource("14_6o5lt")]
 position = Vector2(-286, 41)
 
+[node name="esqueleto" parent="enemies" instance=ExtResource("13_svdef")]
+position = Vector2(19, 276)
+
+[node name="esqueleto2" parent="enemies" instance=ExtResource("13_svdef")]
+position = Vector2(384, 278)
+
+[node name="esqueleto3" parent="enemies" instance=ExtResource("13_svdef")]
+position = Vector2(47, 84)
+
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="control" type="Control" parent="HUD"]
@@ -1433,13 +1458,3 @@ text = "0000"
 vertical_alignment = 1
 
 [node name="pause_menu" parent="." instance=ExtResource("10_2fofk")]
-visible = false
-
-[node name="esqueleto" parent="." instance=ExtResource("13_svdef")]
-position = Vector2(19, 276)
-
-[node name="esqueleto2" parent="." instance=ExtResource("13_svdef")]
-position = Vector2(384, 278)
-
-[node name="esqueleto3" parent="." instance=ExtResource("13_svdef")]
-position = Vector2(47, 84)
