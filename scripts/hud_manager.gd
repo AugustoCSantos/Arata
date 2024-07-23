@@ -8,8 +8,8 @@ func _ready():
 	gems_counter.text = str("%04d" % Global.gems)
 	score_counter.text = str("%04d" % Global.score)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	gems_counter.text = str("%04d" % Global.gems)
 	score_counter.text = str("%04d" % Global.score)
+	pass

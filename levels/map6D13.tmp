@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://556xv33cdnig"]
+[gd_scene load_steps=19 format=3 uid="uid://556xv33cdnig"]
 
 [ext_resource type="Texture2D" uid="uid://sf7yk67ik33d" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_2a065"]
 [ext_resource type="Texture2D" uid="uid://cbpcvgsi8o5ve" path="res://Assets/oak_woods_v1.0/decorations/rock_1.png" id="2_ff4w0"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://ds72swhgs02ol" path="res://actors/enemy.tscn" id="11_dv125"]
 [ext_resource type="Texture2D" uid="uid://r0c3xdete0og" path="res://Assets/Crystal_Animation/Purple/purple_crystal_0000.png" id="12_04wl4"]
 [ext_resource type="Script" path="res://scripts/hud_manager.gd" id="12_ldyt1"]
-[ext_resource type="PackedScene" uid="uid://c4upx2tj5n43a" path="res://pause_menu.tscn" id="14_smker"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bsn8s"]
 texture = ExtResource("1_2a065")
@@ -1437,5 +1436,3 @@ vertical_alignment = 1
 layout_mode = 2
 text = "0000"
 vertical_alignment = 1
-
-[node name="pause_menu" parent="." instance=ExtResource("14_smker")]
